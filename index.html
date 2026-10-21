@@ -38,12 +38,18 @@
     <!-- Main Content Container -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-8">
         
-        <!-- Intro Banner -->
-        <div class="bg-white border border-neutral-200 p-6 sm:p-8 rounded-2xl shadow-sm mb-10">
-            <h2 id="introTitle" class="text-xl sm:text-2xl font-bold mb-3 serif-title text-neutral-900">參展夥伴／展間介紹 (14個展區完整內容)</h2>
-            <p id="introDesc" class="text-neutral-600 text-sm sm:text-base leading-relaxed">
-                收錄剝皮寮歷史街區 2026 貧窮人的台北展覽中，14 個參展夥伴與展區的完整參展單位與展品介紹。
-            </p>
+        <!-- Main Exhibition Introduction Section -->
+        <section class="bg-white border border-neutral-200 rounded-2xl p-6 sm:p-10 shadow-sm mb-12">
+            <div id="exhibitionIntro">
+                <!-- Dynamic Content Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Exhibition Rooms Section Title -->
+        <div class="mb-6 border-b border-neutral-300 pb-4">
+            <h2 id="roomsHeader" class="text-2xl font-bold text-neutral-900 serif-title">
+                參展夥伴／展間介紹 (14個展區)
+            </h2>
         </div>
 
         <!-- Exhibition Grid -->
@@ -54,6 +60,41 @@
 
     <script>
         let currentLang = 'zh';
+
+        const introData = {
+            zh: {
+                mainTitle: "貧窮人的台北",
+                subTitle: "we own the city, we own ourselves",
+                quote1: "「大台北今天的光彩奪目，其實是百多年來，南往北來的逐夢人、一無所有的人、底層勞工、移民、原住民和貧窮人⋯⋯，付出心血、貢獻勞力打造出來的結果。\n\n從某種角度說，今天繁華的台北，不單是成功的人、有錢人的台北，也應當是挫折的人、貧窮人的台北。」⸺ 孫大川老師",
+                p1: "《貧窮人的台北》行動由向貧窮者學習行動聯盟於 2017 年發起，透過展覽、走訪行動、創作導覽、公民論壇、真人圖書館，搭建經驗者發聲的空間，並創造社會大眾與經驗者的交流與對話。",
+                p2: "2026年貧窮人的台北⸺「貧窮像影子，其實一直都在，只是我還沒認識他。」\n貧窮並非遙遠而陌生的他者經驗，而可能以不同形式存在於每個人的生命之中。如同影子，有時近得難以察覺，直到轉身回望，才發現自己或許也曾身在其中。",
+                p3: "或許影子所承載的，正是那些因恐懼而被藏起、尚未被好好命名的部分。當轉身直面，才可能重新發現那些熟悉卻未曾整理的經驗與連結。",
+                p4: "2026 貧窮人的台北《只是我還在認識的影子》，是由貧窮經驗者與工作者共同淬煉出貧窮的深刻意涵，以及想說的話。今年貧北將透過展覽、論壇、真人圖書館、號召百人的團結之夜，以及多項交流與展演，展開一場與影子相遇的行動。循著不同陰影的型態走近貧窮，發現彼此同與不同的處境，重新辨認我們與影子之間的距離。",
+                
+                mainExhibitionHeader: "2026 貧北主展覽",
+                quote2: "「貧窮像影子，其實一直都在，只是我還沒、還在認識他。」",
+                dialogue: "「我過去待過不少行業，直到和無家者一起工作，才想自己成長時也經歷過貧窮，只是被自己忽略，」他說：「回頭看，貧窮就像影子一直都在。只是我還在認識它。」",
+                shadowText: "但陰影是否真意味著惡與可怖？或許影子正是社會集體因恐懼而長年封存、拒絕好好命名的那一部分。若轉為直面，我們可能從中有些發現，無論是過往未曾所見之物，甚至一直熟悉卻未整理的連結。\n\n今年貧北由此影子為起點，轉身開始。\n貧窮一直都在，而終於有人轉身。",
+                turningText: "貧窮若是影子，包裹的不僅是單一命運，也映照著我們與社會之間複雜而深刻的連結。展覽是我們能放心講述生命經驗、貧窮困境的形式。此次展出的作品，由經驗者獨立創作，或與藝術家、NGO 共同完成，提供大眾感受與思考的空間，從不同創作中靠近貧窮，也打開更多理解與想像的可能。",
+                callout: "「這道影子是社會所共同持有的，不應只讓個人面對。」\n邀請你前來逛逛2026年貧窮人的台北展覽。"
+            },
+            en: {
+                mainTitle: "Poor People's Taipei",
+                subTitle: "we own the city, we own ourselves",
+                quote1: "\"The dazzling glory of Greater Taipei today is actually the result of more than a century of hard work and sweat contributed by dreamers from south to north, those with nothing, grassroots laborers, immigrants, Indigenous peoples, and poor people...\n\nFrom a certain perspective, today's prosperous Taipei is not only the Taipei of the successful and wealthy, but should also be the Taipei of the frustrated and the impoverished.\" — Professor Sun Ta-chuan",
+                p1: "The \"Poor People's Taipei\" movement was initiated in 2017 by the Alliance for Learning from People in Poverty. Through exhibitions, guided tours, creative workshops, civic forums, and human libraries, it creates spaces for individuals with lived experience to speak out, fostering genuine dialogue between the public and those who have experienced poverty.",
+                p2: "2026 Poor People's Taipei — \"Poverty is like a shadow; it has always been here, it's just that I haven't recognized it yet.\"\nPoverty is not a distant, unfamiliar experience belonging only to 'others'; it can exist in different forms within everyone's life. Like a shadow, it is sometimes too close to notice, until we turn around and realize we too may have once been inside it.",
+                p3: "Perhaps what the shadow carries are precisely those parts hidden away out of fear, waiting to be properly named. Only when we turn around to face it directly can we rediscover familiar yet unexamined experiences and connections.",
+                p4: "The 2026 Poor People's Taipei theme, \"A Shadow I Am Still Getting to Know,\" distills the profound meaning of poverty and the stories meant to be shared, crafted jointly by individuals with poverty experience and social workers. This year, through exhibitions, forums, human libraries, a Solidarity Night assembling hundreds, and interactive performances, we initiate an action to encounter our shadows. Tracing different shapes of shade to draw closer to poverty, we discover our shared and distinct realities, re-evaluating our distance from the shadow.",
+
+                mainExhibitionHeader: "2026 Main Exhibition",
+                quote2: "\"Poverty is like a shadow; it has always been here, it's just that I haven't recognized it yet.\"",
+                dialogue: "\"I worked in many industries before. It wasn't until I worked with homeless individuals that I realized I, too, grew up experiencing poverty—I had simply ignored it,\" he said. \"Looking back, poverty is like a shadow that has always been there. I am still learning to recognize it.\"",
+                shadowText: "Does shadow truly signify evil or terror? Perhaps shadows are simply the parts of society sealed away for years due to collective fear, waiting to be named. When we turn to face them, we may discover things never seen before—or connections long familiar yet unexamined.\n\nThis year's exhibition starts from this shadow, beginning with a turn.\nPoverty has always been here, and finally, someone has turned around.",
+                turningText: "If poverty is a shadow, it wraps around more than a single fate; it reflects the complex and deep bonds between us and society. An exhibition offers a safe space where life experiences and poverty struggles can be told freely. The works displayed are created independently by people with lived experiences, or in collaboration with artists and NGOs, offering room for reflection, drawing closer to poverty, and opening possibilities for understanding.",
+                callout: "\"This shadow belongs to society collectively; it should not be faced by individuals alone.\"\nWe cordially invite you to visit the 2026 Poor People's Taipei Exhibition."
+            }
+        };
 
         const data = [
             {
@@ -212,6 +253,53 @@
             }
         ];
 
+        function renderIntro() {
+            const container = document.getElementById('exhibitionIntro');
+            const dataObj = introData[currentLang];
+
+            container.innerHTML = `
+                <div class="mb-6 border-b border-neutral-200 pb-4">
+                    <h1 class="text-2xl sm:text-4xl font-bold text-neutral-900 serif-title mb-1">${dataObj.mainTitle}</h1>
+                    <span class="text-sm sm:text-base font-semibold tracking-wider text-neutral-500 italic block">${dataObj.subTitle}</span>
+                </div>
+
+                <!-- Quote Block 1 -->
+                <blockquote class="bg-neutral-100 border-l-4 border-neutral-800 p-4 sm:p-5 rounded-r-lg my-6 text-sm sm:text-base italic text-neutral-800 whitespace-pre-line leading-relaxed">
+                    ${dataObj.quote1}
+                </blockquote>
+
+                <div class="space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
+                    <p>${dataObj.p1}</p>
+                    <p class="whitespace-pre-line">${dataObj.p2}</p>
+                    <p>${dataObj.p3}</p>
+                    <p>${dataObj.p4}</p>
+                </div>
+
+                <hr class="my-8 border-neutral-200" />
+
+                <!-- Main Exhibition Section -->
+                <div class="space-y-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 serif-title">${dataObj.mainExhibitionHeader}</h2>
+                    
+                    <div class="text-base sm:text-lg font-bold text-neutral-900 italic border-l-2 border-neutral-400 pl-4 py-1">
+                        ${dataObj.quote2}
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 p-4 sm:p-5 rounded-lg text-neutral-800 text-sm sm:text-base italic">
+                        ${dataObj.dialogue}
+                    </div>
+
+                    <p class="whitespace-pre-line text-sm sm:text-base text-neutral-700 leading-relaxed">${dataObj.shadowText}</p>
+                    
+                    <p class="text-sm sm:text-base text-neutral-700 leading-relaxed">${dataObj.turningText}</p>
+
+                    <div class="bg-neutral-900 text-white p-5 rounded-xl text-center text-sm sm:text-base font-medium whitespace-pre-line shadow-sm">
+                        ${dataObj.callout}
+                    </div>
+                </div>
+            `;
+        }
+
         function renderExhibition() {
             const grid = document.getElementById('exhibitionGrid');
             grid.innerHTML = '';
@@ -262,15 +350,16 @@
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
             
             document.getElementById('langBtnText').innerText = currentLang === 'zh' ? 'Switch to English' : '切換為中文';
-            document.getElementById('introTitle').innerText = currentLang === 'zh' ? '參展夥伴／展間介紹 (14個展區完整內容)' : 'Participating Partners & Exhibition Rooms (Full Details)';
-            document.getElementById('introDesc').innerText = currentLang === 'zh' 
-                ? '收錄剝皮寮歷史街區 2026 貧窮人的台北展覽中，14 個參展夥伴與展區的完整參展單位與展品介紹。'
-                : 'Complete listing of all 14 participating organizations and exhibit descriptions for the 2026 Poor People\'s Taipei Exhibition at Bopiliao Historic Block.';
+            document.getElementById('roomsHeader').innerText = currentLang === 'zh' 
+                ? '參展夥伴／展間介紹 (14個展區)' 
+                : 'Participating Partners & Exhibition Rooms (14 Rooms)';
 
+            renderIntro();
             renderExhibition();
         }
 
         // Initial Load
+        renderIntro();
         renderExhibition();
     </script>
 </body>
